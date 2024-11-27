@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+
+        }
+
+        .container{
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 3em;
+            font-size: 2em;
+            box-shadow:15px 15px 0px lightgray ;
+
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="text-container"></h1>
+    </div>
+    
+
+    <script>
+
+        
+        const timeTextEle = document.getElementById("text-container");
+
+        setInterval(() => {
+            let time = new Date();
+            let hours = time.getHours();
+            let minutes = time.getMinutes();
+            let seconds = time.getSeconds();
+            let ampm = hours >= 12 ? "PM" : "AM";
+
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+
+            if(hours < 10){
+                hours = "0" + hours;
+            }
+
+            if(minutes < 10){
+                minutes = "0" + minutes;
+            }
+
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+
+
+            timeTextEle.innerHTML = hours +":" +minutes+ ":" +seconds +" "+ampm;
+        }, 1000);
+
+
+
+
+    </script>
+</body>
+</html>
